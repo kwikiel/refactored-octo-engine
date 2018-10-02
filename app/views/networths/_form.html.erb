@@ -1,0 +1,27 @@
+<%= form_with(model: networth, local: true) do |form| %>
+  <% if networth.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(networth.errors.count, "error") %> prohibited this networth from being saved:</h2>
+
+      <ul>
+      <% networth.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Networths</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @networths.each do |networth| %>
+      <tr>
+        <td><%= networth.value %></td>
+        <td><%= networth.date %></td>
+        <td><%= link_to 'Show', networth %></td>
+        <td><%= link_to 'Edit', edit_networth_path(networth) %></td>
+        <td><%= link_to 'Destroy', networth, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Networth', new_networth_path %>
+
+
+<%= line_chart Networth.pluck(:date, :value) %>
+

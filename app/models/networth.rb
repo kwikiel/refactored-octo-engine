@@ -1,0 +1,2 @@
+class Networth < ApplicationRecord
+end
